@@ -40,10 +40,10 @@
                 <label for="" class="control-label">Contact #</label>
                 <input type="text" name="recipient_contact" id="" class="form-control form-control-sm" value="<?php echo isset($recipient_contact) ? $recipient_contact : '' ?>" required>
               </div>
-              <!-- <div class="form-group">
-                <label for="" class="control-label">Recipient Email</label>
-                <input type="text" name="recipient_email" id="" class="form-control form-control-sm" required>
-              </div> -->
+              <div class="form-group">
+                <!-- <label for="" class="control-label">Recipient Email</label> -->
+                <input type="email" name="recipient_email" id="" value="<?php echo isset($recipient_email) ? $recipient_email : '' ?>"  class="form-control form-control-sm" required>
+              </div>
           </div>
         </div>
         <hr>

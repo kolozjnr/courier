@@ -315,34 +315,35 @@ Class Action {
 		}
 		if(isset($save) && isset($ids)){
 			// Email sending code
-			//$mail = new PHPMailer(true);
-			// try {
-			// 	//Server settings
+			// $recipient_name = "snana";
+  			// $ref = "uduwjqwjeh";
+			try {
+				//Server settings
 
-			// 	$phpmailer = new PHPMailer();
-			// 	$phpmailer->isSMTP();
-			// 	$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
-			// 	$phpmailer->SMTPAuth = true;
-			// 	$phpmailer->Port = 2525;
-			// 	$phpmailer->Username = '658f452d0fa156';
-			// 	$phpmailer->Password = '39450840beed42';
+				$phpmailer = new PHPMailer(true);
+				$phpmailer->isSMTP();
+				$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
+				$phpmailer->SMTPAuth = true;
+				$phpmailer->Port = 2525;
+				$phpmailer->Username = '658f452d0fa156';
+				$phpmailer->Password = '39450840beed42';
 	
-			// 	//Recipients
-			// 	$phpmailer->setFrom('from@example.com', 'Mailer');
-			// 	$phpmailer->addAddress($recipient_email, $_POST['recipient_name']); // Add a recipient
+				//Recipients
+				$phpmailer->setFrom('noreply@hermes-shippers.com', 'Admin');
+				$phpmailer->addAddress($recipient_email, $recipient_name); // Add a recipient
 	
-			// 	// Content
-			// 	$phpmailer->isHTML(true); // Set email format to HTML
-			// 	$phpmailer->Subject = 'Your Parcel Tracking ID';
-			// 	$phpmailer->Body    = "Dear {$recipient_name},<br><br>Your parcel has been successfully uploaded. Your tracking ID is: <b>$ref</b>.";
-			// 	$phpmailer->AltBody = "Dear {$_POST['recipient_name']},\n\nYour parcel has been successfully uploaded. Your tracking ID is: $ref.";
+				// Content
+				$phpmailer->isHTML(true); // Set email format to HTML
+				$phpmailer->Subject = 'Your Parcel Tracking ID';
+				$phpmailer->Body    = "Dear {$recipient_name},<br><br>Your parcel has been successfully uploaded. Your tracking ID is: <b>$ref</b>.";
+				$phpmailer->AltBody = "Dear {$recipient_name},\n\nYour parcel has been successfully uploaded. Your tracking ID is: $ref.";
 	
-			// 	$phpmailer->send();
-			// 	echo 'Parcel details uploaded and email sent successfully!';
-			// } catch (Exception $e) {
-			// 	echo "Parcel details uploaded, but email sending failed. Mailer Error: {$mail->ErrorInfo}";
-			// }
-	
+				$phpmailer->send();
+				return 1;
+				//echo 'Parcel details uploaded and email sent successfully!';
+			} catch (Exception $e) {
+				//echo "Parcel details uploaded, but email sending failed. Mailer Error: {$mail->ErrorInfo}";
+			}
 			// return json_encode(array('ids'=>$ids,'status'=>1));
 			return 1;
 		}

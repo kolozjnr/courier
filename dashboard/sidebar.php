@@ -21,6 +21,14 @@
               </p>
             </a>
           </li>     
+          <li class="nav-item dropdown">
+            <a href="./index.php?page=email" class="nav-link nav-home">
+              <i class="nav-icon fas fa-email"></i>
+              <p>
+                Email
+              </p>
+            </a>
+          </li> 
           <?php if($_SESSION['login_type'] == 1): ?>
           <li class="nav-item">
             <a href="#" class="nav-link nav-edit_branch">
