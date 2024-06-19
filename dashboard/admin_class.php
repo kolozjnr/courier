@@ -313,6 +313,7 @@ Class Action {
 					$ids[] = $id;
 			}
 		}
+		//return $recipient_name;
 		if(isset($save) && isset($ids)){
 			// Email sending code
 			// $recipient_name = "snana";
@@ -320,7 +321,7 @@ Class Action {
 			try {
 				//Server settings
 
-				$phpmailer = new PHPMailer(true);
+				$phpmailer = new PHPMailer();
 				$phpmailer->isSMTP();
 				$phpmailer->Host = 'sandbox.smtp.mailtrap.io';
 				$phpmailer->SMTPAuth = true;
@@ -335,8 +336,8 @@ Class Action {
 				// Content
 				$phpmailer->isHTML(true); // Set email format to HTML
 				$phpmailer->Subject = 'Your Parcel Tracking ID';
-				$phpmailer->Body    = "Dear {$recipient_name},<br><br>Your parcel has been successfully uploaded. Your tracking ID is: <b>$ref</b>.";
-				$phpmailer->AltBody = "Dear {$recipient_name},\n\nYour parcel has been successfully uploaded. Your tracking ID is: $ref.";
+				$phpmailer->Body    = "Dear {$recipient_name},<br><br>Your parcel has been successfully uploaded. Your tracking ID is: <b>$ref</b>, kindly visit https://www.hermes-shippers.com to track your Parcel.";
+				$phpmailer->AltBody = "Dear {$recipient_name},\n\nYour parcel has been successfully uploaded. Your tracking ID is: $ref,  kindly visit https://www.hermes-shippers.com to track your Parcel.";
 	
 				$phpmailer->send();
 				return 1;
